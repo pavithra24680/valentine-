@@ -9,12 +9,12 @@
 body{
   margin:0;
   overflow:hidden;
-  height:100vh;
+  min-height:100vh;
   display:flex;
   justify-content:center;
   align-items:center;
   background:linear-gradient(135deg,#7b1e1e,#ff5f6d,#ffc371);
-  font-family: 'Arial', sans-serif;
+  font-family: Arial, sans-serif;
   color:white;
   text-align:center;
 }
@@ -22,17 +22,19 @@ body{
 .container{
   z-index:10;
   padding:20px;
+  max-width:420px;
+  width:100%;
 }
 
 h1{
   font-size:32px;
-  margin-bottom:10px;
+  margin-bottom:12px;
 }
 
 h2{
   font-size:22px;
   font-weight:normal;
-  margin-bottom:30px;
+  line-height:1.5;
 }
 
 button{
@@ -43,6 +45,8 @@ button{
   border-radius:30px;
   font-size:20px;
   box-shadow:0 6px 15px rgba(0,0,0,0.3);
+  cursor:pointer;
+  width:auto;
 }
 
 button:active{
@@ -77,6 +81,42 @@ button:active{
     opacity:0;
   }
 }
+
+/* 📱 Mobile */
+@media (max-width:600px){
+  h1{
+    font-size:26px;
+  }
+
+  h2{
+    font-size:18px;
+  }
+
+  button{
+    font-size:18px;
+    width:100%;
+    padding:14px;
+  }
+
+  .heart{
+    font-size:16px;
+  }
+}
+
+/* 📱 Tablet */
+@media (min-width:601px) and (max-width:900px){
+  h1{
+    font-size:28px;
+  }
+
+  h2{
+    font-size:20px;
+  }
+
+  button{
+    font-size:19px;
+  }
+}
 </style>
 </head>
 
@@ -84,16 +124,15 @@ button:active{
 
 <div class="container">
   <div id="start">
-    <button onclick="startLove()"> Touch Me Selvam </button>
+    <button onclick="startLove()">Touch Me Selvam 💕</button>
   </div>
 
   <div id="msg" class="message">
-    <h1>❤️ Happy Valentine’s Day ❤️</h1>
+    <h1>Happy Valentine’s Day </h1>
     <h2>
-      Selvam  <br><br>
-      May your life be filled with love, peace, and happiness. <br> 
-      Your smile is the real gift of all days. ❤️
-    </h2>
+      Selvam 💖<br><br>
+      Un life full-ah love, peace & happiness irukkanum <br>
+      Un smile dhaan indha day-oda real gift...    </h2>
   </div>
 </div>
 
@@ -108,7 +147,7 @@ function startLove(){
   song.volume = 0.5;
   song.play();
 
-  setInterval(createHeart, 250);
+  setInterval(createHeart, 300);
 }
 
 function createHeart(){
