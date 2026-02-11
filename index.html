@@ -1,0 +1,129 @@
+02.11 10:27 AM
+valentine.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Selvam ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+  margin:0;
+  overflow:hidden;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#7b1e1e,#ff5f6d,#ffc371);
+  font-family: 'Arial', sans-serif;
+  color:white;
+  text-align:center;
+}
+
+.container{
+  z-index:10;
+  padding:20px;
+}
+
+h1{
+  font-size:32px;
+  margin-bottom:10px;
+}
+
+h2{
+  font-size:22px;
+  font-weight:normal;
+  margin-bottom:30px;
+}
+
+button{
+  padding:16px 32px;
+  background:white;
+  color:#e91e63;
+  border:none;
+  border-radius:30px;
+  font-size:20px;
+  box-shadow:0 6px 15px rgba(0,0,0,0.3);
+}
+
+button:active{
+  transform:scale(0.95);
+}
+
+.message{
+  display:none;
+  animation:fadeIn 2s ease forwards;
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(20px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+.heart{
+  position:absolute;
+  bottom:-20px;
+  font-size:20px;
+  animation:float 7s linear infinite;
+  color:#ff3366;
+}
+
+@keyframes float{
+  0%{
+    transform:translateY(0) scale(1);
+    opacity:1;
+  }
+  100%{
+    transform:translateY(-110vh) scale(1.6);
+    opacity:0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <div id="start">
+    <button onclick="startLove()"> Touch Me Selvam </button>
+  </div>
+
+  <div id="msg" class="message">
+    <h1>❤️ Happy Valentine’s Day ❤️</h1>
+    <h2>
+      Selvam  <br><br>
+      Un life full-ah love, peace & happiness irukkanum <br>
+      Un smile dhaan indha day-oda real gift 
+    </h2>
+  </div>
+</div>
+
+<audio id="song" src="neelothi.mp3" loop></audio>
+
+<script>
+function startLove(){
+  document.getElementById("start").style.display="none";
+  document.getElementById("msg").style.display="block";
+
+  const song = document.getElementById("song");
+  song.volume = 0.5;
+  song.play();
+
+  setInterval(createHeart, 250);
+}
+
+function createHeart(){
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = (Math.random() * 3 + 4) + "s";
+  document.body.appendChild(heart);
+
+  setTimeout(()=>heart.remove(),7000);
+}
+</script>
+
+</body>
+</html>
